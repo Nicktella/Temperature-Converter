@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <script src="temperatureconv.js" defer></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #3498db;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+            border-style: ridge;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Temperature Converter</h1>
+
+    <script>
+        function convertToCelsius(fahrenheit) {
+            var celsius = (fahrenheit - 32) * 5 / 9;
+            return celsius;
+        }
+
+        function createMessage(fahrenheit) {
+            var celsius = convertToCelsius(fahrenheit);
+
+            var message;
+            if (celsius < -5) {
+                message = `${fahrenheit}°F is ${celsius.toFixed(2)}°C. It's extremely cold!`;
+            } else if (-5 <= celsius < 5) {
+                message = `${fahrenheit}°F is ${celsius.toFixed(2)}°C. It's chilly.`;
+            } else if (5 <= celsius < 15) {
+                message = `${fahrenheit}°F is ${celsius.toFixed(2)}°C. It's cool.`;
+            } else if (15 <= celsius < 25) {
+                message = `${fahrenheit}°F is ${celsius.toFixed(2)}°C. It's warm.`;
+            } else {
+                message = `${fahrenheit}°F is ${celsius.toFixed(2)}°C. It's hot!`;
+            }
+
+            console.log(message);
+        }
+
+        // Example usage with user input:
+        var fahrenheit_temp = prompt("Enter Fahrenheit temperature:");
+        createMessage(parseFloat(fahrenheit_temp));
+
+        var random_number = Math.floor(Math.random() * 100) + 1;
+        console.log(`Random number between 1 and 100: ${random_number}`);
+    </script>
+
+</body>
+
+</html>
